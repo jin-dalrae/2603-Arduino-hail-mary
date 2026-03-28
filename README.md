@@ -1,8 +1,10 @@
-# Tilt-Controlled Ball Leveler
+# Arduino Hail Mary
 
 ![Demo](demo.gif)
 
-A two-board system that reads orientation from a 9-axis IMU sensor (ESP32 + LSM9DS1), sends data via BLE to a Python bridge, and controls a servo motor (Arduino Uno) to push a ball upward regardless of which way the device is tilted. A real-time web dashboard visualizes sensor data and servo position.
+Inspired by the movie *Project Hail Mary*, this project simulates zero-gravity motion using Arduino. A 3D-printed Grace doll (the alien character) is attached to a ball on a linear actuator — the servo pushes the ball upward regardless of orientation, making Grace appear to float in zero-G.
+
+Under the hood, an ESP32 with a 9-axis IMU sensor (LSM9DS1) detects tilt via BLE, a Python bridge forwards the data to an Arduino Uno, and the Uno drives a servo to keep the ball — and Grace — always moving upward. A real-time web dashboard visualizes the sensor data and servo position live.
 
 ## System Overview
 
