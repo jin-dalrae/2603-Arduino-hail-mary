@@ -1,5 +1,7 @@
 # Tilt-Controlled Ball Leveler
 
+![Demo](demo.gif)
+
 A two-board system that reads orientation from a 9-axis IMU sensor (ESP32 + LSM9DS1), sends data via BLE to a Python bridge, and controls a servo motor (Arduino Uno) to push a ball upward regardless of which way the device is tilted. A real-time web dashboard visualizes sensor data and servo position.
 
 ## System Overview
