@@ -2,9 +2,9 @@
 
 ![Demo](demo.gif)
 
-Inspired by the movie *Project Hail Mary*, this project simulates zero-gravity motion using Arduino. A 3D-printed Grace doll (the alien character) is attached to a ball on a linear actuator — the servo pushes the ball upward regardless of orientation, making Grace appear to float in zero-G.
+Inspired by the movie *Project Hail Mary*, this project simulates zero-gravity motion using Arduino. A 3D-printed Grace doll is attached to a linear actuator — the servo pushes the doll upward regardless of orientation, making Grace appear to float in zero-G.
 
-Under the hood, an ESP32 with a 9-axis IMU sensor (LSM9DS1) detects tilt via BLE, a Python bridge forwards the data to an Arduino Uno, and the Uno drives a servo to keep the ball — and Grace — always moving upward. A real-time web dashboard visualizes the sensor data and servo position live.
+Under the hood, an ESP32 with a 9-axis IMU sensor (LSM9DS1) detects tilt via BLE, a Python bridge forwards the data to an Arduino Uno, and the Uno drives a servo to keep the Grace always moving upward. A real-time web dashboard visualizes the sensor data and servo position live.
 
 ## System Overview
 
@@ -35,7 +35,7 @@ Under the hood, an ESP32 with a 9-axis IMU sensor (LSM9DS1) detects tilt via BLE
 | **ESP32** dev board | Reads sensor data, sends via BLE + USB |
 | **LSM9DS1** 9-axis IMU | Accelerometer + Gyroscope sensor |
 | **Arduino Uno** | Receives data, controls servo |
-| **Servo motor** | Moves the ball via linear actuator |
+| **Servo motor** | Moves the doll via linear actuator |
 | **Jumper wires** | Connections |
 
 ## Wiring
@@ -163,8 +163,8 @@ The Uno determines orientation from the Z-axis accelerometer value:
 
 | Condition | Meaning | Servo Target |
 |---|---|---|
-| `az < -2.0` | Sensor facing **up** | 180° (push ball up) |
-| `az > 2.0`  | Sensor facing **down** | 0° (reverse direction, push ball up) |
+| `az < -2.0` | Sensor facing **up** | 180° (push doll up) |
+| `az > 2.0`  | Sensor facing **down** | 0° (reverse direction, push doll up) |
 | `-2.0 <= az <= 2.0` | Dead zone | Holds current position |
 
 The servo moves gradually at 1°/15ms (~2.7 seconds for a full sweep) for smooth motion.
@@ -180,7 +180,7 @@ The servo moves gradually at 1°/15ms (~2.7 seconds for a full sweep) for smooth
 The web dashboard displays:
 - Live accelerometer values (X, Y, Z)
 - Live gyroscope values (GX, GY, GZ)
-- **Servo visualization** — animated ball that mirrors the real servo position and movement speed
+- **Servo visualization** — animated doll that mirrors the real servo position and movement speed
 - Real-time line charts for accelerometer and gyroscope
 - Debug log showing raw incoming data
 
